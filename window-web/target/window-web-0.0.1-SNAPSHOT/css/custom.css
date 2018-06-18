@@ -1,0 +1,39 @@
+.inputnum{
+	width: 40px;
+	height: 20px;
+	text-align: center;
+	padding: 0;
+	font-size: 1px;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 5px 0px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+.modal-body > thead > tr > th,
+.modal-body > tbody > tr > th,
+.modal-body > tfoot > tr > th,
+.modal-body > thead > tr > td,
+.modal-body > tbody > tr > td,
+.modal-body > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+#dataList{
+	text-align: center;
+	font-size: xx-small;
+}
+.box-header .with-border .box-title{
+	text-align: left;
+}
+thead > tr > th {
+	text-align: center;
+}

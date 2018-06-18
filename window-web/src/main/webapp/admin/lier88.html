@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>鸿运断桥铝、塑钢门窗</title>
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+	<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../plugins/angularjs/angular.min.js" type="text/javascript"></script>
+	<!-- 分页插件开始 -->
+	<script src="../plugins/angularjs/pagination.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="../plugins/angularjs/pagination.css">
+	<!-- 分页插件结束 -->
+	<script src="../js/base_paging.js" type="text/javascript"></script>
+	<script src="../js/service/lier88Service.js" type="text/javascript"></script>
+	<script src="../js/controller/baseController.js" type="text/javascript"></script>
+	<script src="../js/controller/lier88Controller.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="hold-transition skin-red sidebar-mini" ng-app="milanuo" ng-controller="lier88Controller" >
+  <!-- .box-body -->
+                    <div class="box-header with-border">
+                        <h3 class="box-title">力尔88型材</h3>
+                    </div>
+
+                    <div class="box-body">
+
+                        <!-- 数据表格 -->
+                        <div class="table-box">
+
+                            <!--工具栏-->
+                            <div class="pull-left">
+                                <div class="form-group form-inline">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal" ng-click="entity={'materialstype':'力尔88'}"><i class="fa fa-file-o"></i> 新建</button>
+                                        <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-tools pull-right">
+                                <div class="has-feedback">
+							                      窗户类型：
+							         <select ng-model="searchEntity.type">
+							         	<option value="" ></option>
+							         	<option value="A1">A1无上亮推拉</option>
+					      				<option value="A2">A2上亮无梃</option>
+					      				<option value="A3">A3上亮带梃</option>
+					      				<option value="A4">A4上下亮无梃</option>
+					      				<option value="A5">A5上下亮有梃</option>
+							         </select>  输入日期：<input type="date" ng-model="searchEntity.memorydate"><button type="button" class="btn btn-default" ng-click="reloadList()">查询</button>                                  
+                                </div>
+                            </div>
+                            <!--工具栏/-->
+
+			                  <!--数据列表-->
+			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
+							
+			                      <thead>
+			                      	<tr>
+										<th>窗户尺寸</th>
+							            <th>框尺寸</th>
+							            <th>固(上)</th>
+							            <th>固(下)</th>
+							            <th>梃(上)</th>
+							            <th>梃(下)</th>
+							            <th>扇尺寸</th>
+							            <th>固上压线</th>
+							            <th>固下压线</th>
+							            <th>扇压线</th>
+							            <th>固上玻璃</th>
+							            <th>固下玻璃</th>
+							            <th>扇玻璃</th>							     				
+			                        </tr>
+			                      </thead>
+			                      
+			                      <tbody>
+			                      	<!-- A1type -->
+			                          <tr ng-repeat="entity1 in listA1">
+				                           	<td>{{entity1.iH}}*{{entity1.iW}}*{{entity1.iN}}</td>
+								            <td class="td_input"><input class="inputnum" ng-model="entity1.iH">*<input class="inputnum" ng-model="entity1.iW">*{{entity1.iN}}</td>
+								            <td></td>
+								            <td></td>
+								            <td></td>
+								            <td></td>
+								            <td>{{entity1.iH-88}}*{{(entity1.iW-10)/2}}*{{entity1.iN*1}}</td>
+								            <td></td>
+								            <td></td>
+								            <td>{{entity1.iH-88-82}}*{{(entity1.iW-10)/2-82}}*{{entity1.iN*4}}</td>
+								           	<td></td>
+								            <td></td>
+								           	<td>{{entity1.iH-88-82-5}}*{{(entity1.iW-10)/2-82-5}}*{{entity1.iN*2}}</td>		                                 
+			                          </tr>
+			                      </tbody>
+			                   
+			                      
+			                      <tbody>
+			                      	<!-- A2type -->
+			                          <tr ng-repeat="entity2 in listA2">
+				                           <td>{{entity2.iH}}*{{entity2.iW}}*{{entity2.iN}}</td>
+							                <td class="td_input"><input class="inputnum" ng-model="entity2.dH">*<input class="inputnum" ng-model="entity2.iW">*{{entity2.iN}}</td>
+							                <td class="td_input"><input class="inputnum" ng-model="entity2.tH">*<input class="inputnum" ng-model="entity2.iW">*{{entity2.iN}}</td>
+							                <td></td>
+								            <td></td>
+								            <td></td>
+							                <td>{{entity2.dH-88}}*{{(entity2.iW-10)/2}}*{{entity2.iN*2}}</td>
+							                <td>{{entity2.tH-60}}*{{entity2.iW-60}}*{{entity2.iN*2}}</td>
+							                <td></td>
+							                <td>{{entity2.dH-88-82}}*{{(entity2.iW-10)/2-82}}*{{entity2.iN*4}}</td>
+							                <td>{{entity2.tH-60-5}}*{{entity2.iW-60-5}}*{{entity2.iN*1}}</td>
+							                <td></td>
+							                <td>{{entity2.dH-88-82-5}}*{{(entity2.iW-10)/2-82-5}}*{{entity2.iN*2}}</td>		                                 
+			                          </tr>
+			                      </tbody>
+			                   
+			                   
+			                      <tbody>
+			                          <tr ng-repeat="entity3 in listA3">
+			                          	<!-- A3type -->
+				                             <td>{{entity3.iH}}*{{entity3.iW}}*{{entity3.iN}}</td>
+								             <td class="td_input"><input class="inputnum" ng-model="entity3.dH">*<input class="inputnum" ng-model="entity3.iW">*{{entity3.iN}}</td>
+							                 <td class="td_input"><input class="inputnum" ng-model="entity3.tH">*<input class="inputnum" ng-model="entity3.iW">*{{entity3.iN}}</td>
+								             <td></td>
+								             <td>{{entity3.tH-34+34+34}}</td>
+								             <td></td>
+								             <td>{{entity3.dH-88}}*{{(entity3.iW-10)/2}}*{{entity3.iN*2}}</td>
+								             <td>{{entity3.tH-60}}*{{(entity3.iW-82)/2}}*{{entity3.iN*4}}</td>
+								             <td></td>
+								             <td>{{entity3.dH-88-82}}*{{(entity3.iW-10)/2-82}}*{{entity3.iN*4}}</td>
+								             <td>{{entity3.tH-60-5}}*{{(entity3.iW-82)/2-5}}*{{entity3.iN*2}}</td>
+								             <td></td>
+								             <td>{{entity3.dH-88-82-5}}*{{(entity3.iW-10)/2-82-5}}*{{entity3.iN*2}}</td>		                                 
+			                          </tr>
+			                      </tbody>
+			                   
+			                   
+			                      <tbody>
+			                         <tr ng-repeat="entity4 in listA4">
+			                          	<!-- A4type -->
+				                             <td>{{entity4.iH}}*{{entity4.iW}}*{{entity4.iN}}</td>
+							                 <td class="td_input"><input class="inputnum" ng-model="entity4.mH">*<input class="inputnum" ng-model="entity4.iW">*{{entity4.iN}}</td>
+							                 <td class="td_input"><input class="inputnum" ng-model="entity4.tH">*<input class="inputnum" ng-model="entity4.iW">*{{entity4.iN}}</td>
+							                 <td class="td_input"><input class="inputnum" ng-model="entity4.dH">*<input class="inputnum" ng-model="entity4.iW">*{{entity4.iN}}</td>
+							                 <td></td>
+							                 <td></td>
+							                 <td>{{entity4.mH-88}}*{{(entity4.iW-10)/2}}*{{entity4.iN*2}}</td>
+							                 <td>{{entity4.tH-60}}*{{entity4.iW-60}}*{{entity4.iN*4}}</td>
+							                 <td>{{entity4.dH-60}}*{{entity4.iW-60}}*{{entity4.iN*4}}</td>
+							                 <td>{{entity4.mH-88-82}}*{{(entity4.iW-10)/2-82}}*{{entity4.iN*4}}</td>
+							                 <td>{{entity4.tH-60-5}}*{{entity4.iW-60-5}}*{{entity4.iN}}</td>
+							                 <td>{{entity4.dH-60-5}}*{{entity4.iW-60-5}}*{{entity4.iN}}</td>
+							                 <td>{{entity4.mH-88-82-5}}*{{(entity4.iW-10)/2-82-5}}*{{entity4.iN*2}}</td>	                                 
+			                          </tr>
+			                      </tbody>
+			                   
+			                   
+			                      <tbody>
+			                          <tr ng-repeat="entity5 in listA5">
+				                            <td>{{entity5.iH}}*{{entity5.iW}}*{{entity5.iN}}</td>
+							                <td class="td_input"><input class="inputnum" ng-model="entity5.mH">*<input class="inputnum" ng-model="entity5.iW">*{{entity5.iN}}</td>
+							                <td class="td_input"><input class="inputnum" ng-model="entity5.tH">*<input class="inputnum" ng-model="entity5.iW">*{{entity5.iN}}</td>
+							                <td class="td_input"><input class="inputnum" ng-model="entity5.dH">*<input class="inputnum" ng-model="entity5.iW">*{{entity5.iN}}</td>
+							                <td>{{entity5.tH-34+34+34}}</td>
+							                <td>{{entity5.dH-34+34+34}}</td>
+							                <td>{{entity5.mH-88}}*{{(entity5.iW-10)/2}}*{{entity5.iN*2}}</td>
+							                <td>{{entity5.tH-60}}*{{(entity5.iW-82)/2}}*{{entity5.iN*4}}</td>
+							                <td>{{entity5.dH-60}}*{{(entity5.iW-82)/2}}*{{entity5.iN*4}}</td>
+							                <td>{{entity5.mH-88-82}}*{{(entity5.iW-10)/2-82}}*{{entity5.iN*4}}</td>
+							                <td>{{entity5.tH-60-5}}*{{(entity5.iW-82)/2-5}}*{{entity5.iN*2}}</td>
+							                <td>{{entity5.dH-60-5}}*{{(entity5.iW-82)/2-5}}*{{entity5.iN*2}}</td>
+							                <td>{{entity5.mH-88-82-5}}*{{(entity5.iW-10)/2-82-5}}*{{entity5.iN*2}}</td>	                                 
+			                          </tr>
+			                      </tbody>
+			                   
+			                   <tbody>
+			                   		<tr align="right">
+			                   			<td colspan="13" style="font-weight: 700;">
+			                   			本页玻璃总面积：{{glassAreas/1000/1000 | number:2}}/m² , 
+			                   			本页窗户总面积：{{totleAreas/1000/1000 | number:2}}/m²</td>
+			                   		</tr>
+			                   	</tbody>
+			                  </table>
+			                  <!--数据列表/-->                        
+							  <!-- 分页 -->
+							<tm-pagination conf="paginationConf"></tm-pagination>  
+							 
+                        </div>
+                        <!-- 数据表格 /-->
+                        
+                        
+                        
+                        
+                     </div>
+                    <!-- /.box-body -->
+         
+<!-- 编辑窗口 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">数据编辑</h3>
+		</div>
+		<div class="modal-body">		
+			<table class="table table-bordered table-striped"  width="800px">
+		      	<tr>
+		      		<td>高度</td>
+		      		<td><input  class="form-control" placeholder="窗户高度（mm）" ng-model="entity.inputheight"></td>
+		      	</tr>		      	
+		      	<tr>
+		      		<td>宽度</td>
+		      		<td><input  class="form-control" placeholder="窗户宽度（mm）" ng-model="entity.inputwidth"></td>
+		      	</tr>		      	
+		      	<tr>
+		      		<td>数量</td>
+		      		<td><input  class="form-control" placeholder="窗户数量（个）" ng-model="entity.inputnumber"></td>
+		      	</tr>		      	
+		      	<tr>
+		      		<td>材料</td>
+		      		<td>
+		      			<input  class="form-control" ng-model="entity.materialstype" disabled="disabled">
+		      		</td>
+		      	</tr>		        	
+			 </table>				
+		</div>
+		<div class="modal-footer">						
+			<button class="btn btn-success" data-dismiss="modal" aria-hidden="true" ng-click="save()">保存</button>
+			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+		</div>
+	  </div>
+	</div>
+</div>
+   
+</body>
+</html>
