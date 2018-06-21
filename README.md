@@ -8,7 +8,7 @@ SSM + AngularJS整合后的一个窗户设计系统
 - 创建表：windowdata
 - 导入数据脚本：window.sql
 - 重启运行 mvn tomcat7:run
-- 访问 http://localhost:8088/window/login.html
+- 访问 http://localhost:8088/login.html
 - 用户名: 无 密码: 无
 
 ## 技术栈
